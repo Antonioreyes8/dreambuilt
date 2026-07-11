@@ -9,7 +9,6 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", id: "home" },
     { name: "Investing", id: "investing" },
     { name: "Projects", id: "projects" },
     { name: "Contact Us", id: "contact" },
@@ -29,7 +28,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
           className="cursor-pointer text-xl font-bold tracking-tight text-slate-900"
           onClick={() => handleNavClick("home")}
         >
-          MyBrand
+          DreamBuilt
         </div>
 
         {/* Desktop Navigation */}

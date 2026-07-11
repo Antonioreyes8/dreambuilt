@@ -17,7 +17,7 @@ export default function Footer() {
 
         {/* Business Contact Email */}
         <p className="text-lg md:text-xl font-medium text-slate-700 tracking-wide">
-          hello@dreambuildt-gc.com
+          hello@dreambuilt-gc.com
         </p>
 
         {/* Minimal House Icon */}

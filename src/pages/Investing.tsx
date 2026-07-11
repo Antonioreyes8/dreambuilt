@@ -100,7 +100,7 @@ export default function Investing() {
 			{/* =========================================================
           SECTION 1: HERO OVERVIEW ("DEVELOPMENT & INVESTMENT")
           ========================================================= */}
-			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start px-4">
+			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start">
 				<div className="lg:col-span-1">
 					<h1 className="text-4xl font-black tracking-tight text-slate-900 md:text-5xl uppercase leading-none">
 						Development
@@ -223,7 +223,7 @@ export default function Investing() {
 			{/* =========================================================
           SECTION 3: TWO-WAY INTERACTIVE MAP COMPONENT
           ========================================================= */}
-			<section className="px-4 text-center">
+			<section className= "text-center">
 				<h2 className="text-3xl font-extrabold text-slate-900 mb-12 tracking-tight">
 					Which counties have we worked in ?
 				</h2>
@@ -299,7 +299,7 @@ export default function Investing() {
 			{/* =========================================================
           SECTION 4: STRATEGIC PROJECT SPECIFICATIONS TABBED UI
           ========================================================= */}
-			<section className="px-4">
+			<section>
 				<div className="w-full rounded-xl overflow-hidden shadow-sm border border-slate-200">
 					{/* Service Classification Selector Tabs Header Bar */}
 					<div className="grid grid-cols-2 sm:grid-cols-4 bg-[#2a2a2a] text-white">

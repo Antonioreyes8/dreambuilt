@@ -36,29 +36,29 @@ export default function Home() {
 		management: {
 			title: "BUILDING MANAGEMENT",
 			leftTextTop:
-				"Protecting your asset and securing long-term value requires dedicated maintenance and operational precision. We manage property facilities, oversee maintenance crews, and run routine system evaluations.",
+				"Got land but not sure how to start? We provide the technical and financial support you need to turn your vision into reality. Whether you’re building for personal use or investment, our team guides you from initial planning through to final construction.",
 			leftTextBottom:
-				"From physical updates to mechanical upkeep, our proactive oversight ensures minimal downtime and sustained tenant satisfaction.",
+				"‍We tailor each project to match your land, your budget, and your goals—helping you make the most of your property with clarity, confidence, and professional support every step of the way.",
 			bullets: [
-				"Facilities Operations & Oversight",
-				"Preventative & Routine Maintenance",
-				"Vendor & Subcontractor Contracts",
-				"Energy Efficiency & Code Audits",
-				"Safety & Security System Compliance",
+				"Design and develop projects",
+				"Define the budget, stages, and timelines",
+				"Coordinate suppliers and specialists",
+				"Provide reports on progress and expenses",
+				"Technical and regulatory compliance",
 			],
 		},
 		investment: {
 			title: "DEVELOPMENT & INVESTMENT",
 			leftTextTop:
-				"Smart builds start with robust market positioning. We evaluate high-growth submarkets, project deep financial pro-formas, and handle zoning, permitting, and pre-development strategies.",
+				"We turn real estate into opportunity. From small residential builds to multi-family developments, we create real estate projects designed to generate value.",
 			leftTextBottom:
-				"We match capital resources with premium development sites to optimize project yield and build long-term real estate equity.",
+				"Whether you're an investor or a future homeowner, we prioritize efficiency, cost control, and profitability—always with full transparency for our partners and clients.",
 			bullets: [
-				"Market & Feasibility Analytics",
-				"Site Acquisition & Due Diligence",
-				"Zoning, Entitlements & Permitting",
-				"Joint Venture & Investor Allocations",
-				"Financial Underwriting & Pro-Formas",
+				"Creation of real estate investment projects",
+				"Co-investment in developments with different levels of participation",
+				"Financial management and competitive return on investment",
+				"Clear financial reporting and progress",
+				"Construction Management",
 			],
 		},
 	};
@@ -66,7 +66,7 @@ export default function Home() {
 	return (
 		<div className="space-y-24 pt-10 pb-16">
 			{/* SECTION 1: MISSION & OVERVIEW */}
-			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start px-4">
+			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start">
 				<div className="lg:col-span-1">
 					<h1 className="text-5xl font-black tracking-tight text-slate-900 md:text-6xl uppercase leading-none">
 						Building
@@ -87,7 +87,7 @@ export default function Home() {
 
 				<div className="lg:col-span-2 space-y-6 text-slate-700 text-[1.05rem] leading-relaxed">
 					<p>
-						<strong className="text-slate-900 font-bold">Dreambuildt</strong> is
+						<strong className="text-slate-900 font-bold">Dreambuilt</strong> is
 						a general contractor based in{" "}
 						<strong className="text-slate-900 font-bold">Denton, TX</strong>,
 						proudly serving some of the fastest-growing cities in the{" "}
@@ -126,7 +126,7 @@ export default function Home() {
 			</section>
 
 			{/* SECTION 2: INTERACTIVE SERVICES TABBED UI */}
-			<section className="px-4">
+			<section>
 				<h2 className="text-3xl font-extrabold text-center text-slate-900 mb-8 tracking-tight">
 					What we do?
 				</h2>

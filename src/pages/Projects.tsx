@@ -95,7 +95,7 @@ export default function Projects() {
 			{/* =========================================================
           SECTION 1: PAGE INTRO & DESCRIPTION
           ========================================================= */}
-			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start px-4">
+			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start">
 				<div className="lg:col-span-1">
 					<h1 className="text-5xl font-black tracking-tight text-slate-900 uppercase leading-none">
 						Projects
@@ -150,7 +150,7 @@ export default function Projects() {
 			{/* =========================================================
           SECTION 2: ACCORDION LISTING WITH DYNAMIC DROPDOWNS
           ========================================================= */}
-			<section className="space-y-12 max-w-6xl mx-auto px-4">
+			<section className="space-y-12 max-w-6xl mx-auto">
 				{projectsData.map((project) => {
 					const isExpanded = expandedProjects.includes(project.id);
 
