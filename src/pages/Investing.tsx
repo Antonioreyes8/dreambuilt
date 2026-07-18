@@ -7,6 +7,7 @@ import {
 	faSeedling,
 } from "@fortawesome/free-solid-svg-icons";
 import { faSquare } from "@fortawesome/free-solid-svg-icons";
+import texasMapSrc from "../assets/texasmap.jpg";
 
 // Type definitions for investment types tab structure
 interface ProjectTabContent {
@@ -173,114 +174,44 @@ export default function Investing() {
 			</section>
 
 			{/* =========================================================
-          SECTION 2: MARKET ANALYTICS (STATISTICS HERO BANNER)
-          ========================================================= */}
-			<section
-				className="relative bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden shadow-md"
-				style={{
-					backgroundImage: `url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80')`,
-				}}
-			>
-				<div className="bg-black/75 w-full h-full py-16 px-6 md:py-20 md:px-12 text-center text-white space-y-8">
-					<div className="space-y-2">
-						<div className="text-4xl md:text-5xl font-black text-white tracking-tight">
-							15%
-						</div>
-						<div className="h-0.5 max-w-80 bg-amber-500 mx-auto w-full"></div>
-						<p className="text-base md:text-lg font-semibold tracking-wide pt-1">
-							of the country's construction is done in Texas
-						</p>
-					</div>
-
-					<div className="space-y-2">
-						<p className="text-base md:text-lg font-semibold tracking-wide">
-							Significant sales growth for growing demand
-						</p>
-						<div className="h-0.5 max-w-80 bg-amber-500 mx-auto w-full"></div>
-					</div>
-
-					<div className="space-y-2">
-						<p className="text-base md:text-lg font-semibold tracking-wide">
-							Better costs than other metropolitan areas in Texas and other
-							cities in the country
-						</p>
-						<div className="h-0.5 max-w-135 bg-amber-500 mx-auto w-full"></div>
-					</div>
-
-					<div className="space-y-2">
-						<div className="text-4xl md:text-5xl font-black text-white tracking-tight">
-							#1
-						</div>
-						<p className="text-base md:text-lg font-semibold tracking-wide uppercase">
-							DFW Real Estate Development Market in 2024
-						</p>
-						<div className="h-0.5 max-w-90 bg-amber-500 mx-auto w-full"></div>
-					</div>
-
-					<div className="space-y-2">
-						<p className="text-base md:text-lg font-semibold tracking-wide">
-							DFW continues to see an increase in population, businesses, and
-							construction
-						</p>
-						<div className="h-0.5 max-w-145 bg-amber-500 mx-auto w-full"></div>
-					</div>
-				</div>
-			</section>
-
-			{/* =========================================================
-          SECTION 3: TWO-WAY INTERACTIVE MAP COMPONENT
-          ========================================================= */}
+    SECTION 3: CLEAN & INTUITIVE MARKET MAP DISPLAY
+    ========================================================= */}
 			<section className="text-center">
-				<h2 className="text-3xl font-extrabold text-slate-900 mb-12 tracking-tight">
-					Which counties have we worked in ?
-				</h2>
+				<div className="max-w-3xl mx-auto mb-10">
+					<h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+						Which counties have we worked in?
+					</h2>
+					<p className="text-slate-500 mt-2 text-sm sm:text-base">
+						Actively building and developing strategic real estate assets across
+						key North Texas submarkets.
+					</p>
+				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
-					{/* Left Column: SVG Vector Map Shell Container */}
-					<div className="md:col-span-7 flex justify-center p-4">
-						<svg
-							viewBox="0 0 600 500"
-							className="w-full max-w-105 h-auto border border-neutral-200 rounded-xl bg-white shadow-inner p-4"
-						>
-							{/* Main Texas Outline Base Layer Shape */}
-							<path
-								d="M210,80 L260,80 L260,150 L360,170 L360,200 C390,170 410,210 430,170 C460,180 500,165 510,185 L510,240 C520,250 515,270 520,290 C510,310 525,320 515,340 C480,335 440,380 420,400 L380,450 C385,465 375,470 365,465 L355,440 L320,385 L310,380 C280,360 270,330 240,320 L240,315 C215,310 210,320 205,305 C180,285 175,280 175,255 L145,210 L145,205 L110,200 L210,80 Z"
-								fill="none"
-								stroke="#1e293b"
-								strokeWidth="2"
-							/>
-
-							{/* Texas DFW Sub-Grid Overlay Blocks */}
-							{countiesList.map((county, index) => {
-								// Generate absolute offset coordinates representing DFW counties roughly
-								const row = Math.floor(index / 4);
-								const col = index % 4;
-								const xPos = 295 + col * 24 - row * 3;
-								const yPos = 190 + row * 22;
-
-								const isHighlighted = hoveredCounty === county;
-
-								return (
-									<rect
-										key={county}
-										x={xPos}
-										y={yPos}
-										width="22"
-										height="20"
-										className="transition-all duration-150 cursor-pointer stroke-slate-900"
-										strokeWidth="1.5"
-										fill={isHighlighted ? "#f59e0b" : "#ffffff"}
-										onMouseEnter={() => setHoveredCounty(county)}
-										onMouseLeave={() => setHoveredCounty(null)}
-									/>
-								);
-							})}
-						</svg>
+				<div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-5xl mx-auto bg-white border border-slate-200/80 p-6 sm:p-8 rounded-2xl shadow-sm">
+					{/* Left Column: Polished Map Asset Container */}
+					<div className="md:col-span-6 flex justify-center items-center bg-slate-50 border border-slate-100 p-4 rounded-xl relative overflow-hidden group h-64 sm:h-80 md:h-96 w-full">
+						<img
+							src={texasMapSrc}
+							alt="Texas Regional Markets Map"
+							className="w-full h-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.02]"
+						/>
+						{hoveredCounty && (
+							<div className="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide uppercase border border-slate-700 shadow-md transition-all animate-fade-in">
+								Focus Market:{" "}
+								<span className="text-amber-400 font-bold">
+									{hoveredCounty}
+								</span>
+							</div>
+						)}
 					</div>
 
-					{/* Right Column: Dynamic Interactive County Sidebar List */}
-					<div className="md:col-span-5 text-left bg-neutral-50/50 border border-neutral-100 p-6 rounded-xl">
-						<div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+					{/* Right Column: Intuitive Dynamic Interactive Sidebar List */}
+					<div className="md:col-span-6 text-left flex flex-col justify-center h-full">
+						<h3 className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600 mb-4 block">
+							Active DFW & Surrounding Areas
+						</h3>
+
+						<div className="grid grid-cols-2 gap-x-3 gap-y-2.5">
 							{countiesList.map((county) => {
 								const isHighlighted = hoveredCounty === county;
 								return (
@@ -288,13 +219,20 @@ export default function Investing() {
 										key={county}
 										onMouseEnter={() => setHoveredCounty(county)}
 										onMouseLeave={() => setHoveredCounty(null)}
-										className={`text-base font-bold transition-all duration-150 py-1 px-2 rounded-md cursor-pointer ${
+										className={`text-sm sm:text-base font-semibold transition-all duration-200 py-2.5 px-3 rounded-lg border cursor-default flex items-center justify-between ${
 											isHighlighted
-												? "text-amber-600 bg-amber-50 scale-[1.02] pl-3"
-												: "text-slate-800 hover:text-amber-500"
+												? "text-amber-700 bg-amber-50/70 border-amber-200 shadow-sm translate-x-1"
+												: "text-slate-700 bg-slate-50/50 border-slate-100 hover:bg-slate-50 hover:border-slate-200"
 										}`}
 									>
-										{county}
+										<span className="truncate">{county}</span>
+										<span
+											className={`h-1.5 w-1.5 rounded-full transition-all duration-200 shrink-0 ml-2 ${
+												isHighlighted
+													? "bg-amber-500 scale-125"
+													: "bg-slate-300"
+											}`}
+										/>
 									</div>
 								);
 							})}
@@ -302,7 +240,6 @@ export default function Investing() {
 					</div>
 				</div>
 			</section>
-
 			{/* =========================================================
           SECTION 4: STRATEGIC PROJECT SPECIFICATIONS TABBED UI
           ========================================================= */}
