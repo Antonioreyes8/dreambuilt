@@ -95,8 +95,11 @@ export default function Projects() {
 			{/* =========================================================
           SECTION 1: PAGE INTRO & DESCRIPTION
           ========================================================= */}
-			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start">
-				<div className="lg:col-span-1">
+			<section className="relative overflow-hidden grid grid-cols-1 gap-12 lg:grid-cols-3 items-start pb-16">
+				<div className="lg:col-span-1 relative">
+					<p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-600">
+						Selected work
+					</p>
 					<h1 className="text-5xl font-black tracking-tight text-slate-900 uppercase leading-none">
 						Projects
 					</h1>
@@ -107,6 +110,9 @@ export default function Projects() {
 						<li>Standard residences</li>
 						<li>Luxury homes</li>
 						<li>Multifamily</li>
+						<li className="text-slate-400 text-base font-normal mt-2">
+							Residential & multifamily expertise
+						</li>
 					</ul>
 				</div>
 

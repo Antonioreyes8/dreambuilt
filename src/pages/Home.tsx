@@ -66,8 +66,11 @@ export default function Home() {
 	return (
 		<div className="space-y-24 pt-10 pb-16">
 			{/* SECTION 1: MISSION & OVERVIEW */}
-			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start">
-				<div className="lg:col-span-1">
+			<section className="relative overflow-hidden grid grid-cols-1 gap-12 lg:grid-cols-3 items-start pb-16">
+				<div className="lg:col-span-1 relative">
+					<p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-600">
+						General contractor
+					</p>
 					<h1 className="text-5xl font-black tracking-tight text-slate-900 md:text-6xl uppercase leading-none">
 						Building
 						<br />

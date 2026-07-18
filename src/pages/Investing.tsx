@@ -6,6 +6,7 @@ import {
 	faCrown,
 	faSeedling,
 } from "@fortawesome/free-solid-svg-icons";
+import { faSquare } from "@fortawesome/free-solid-svg-icons";
 
 // Type definitions for investment types tab structure
 interface ProjectTabContent {
@@ -62,34 +63,34 @@ export default function Investing() {
 		},
 		standard: {
 			title: "Standard Residence",
-			timeframe: "8 to 12 months",
-			roi: "Medium",
+			timeframe: "6 to 8 months",
+			roi: "Low/Medium",
 			descriptionTop:
-				"Modern single-family homes tailored for everyday urban living, combining high-quality architectural finishes with market-resilient equity setups.",
+				"Medium-scale project, ideal for traditional family homes. Spacious design and consistent demand in suburban areas.",
 			descriptionBottom:
-				"A balanced construction profile ideal for stable market scaling.",
+				"Attractive due to its balance of costs, demand, and added value.",
 			imageUrl:
 				"https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80",
 		},
 		luxury: {
 			title: "Luxury House",
-			timeframe: "14 to 18 months",
-			roi: "High Yield",
+			timeframe: "9 to 12 months",
+			roi: "Medium/High",
 			descriptionTop:
-				"Premium custom estates built to elite client specifications. These projects leverage architectural superiority and highly exclusive location parameters.",
+				"Premium investment developments geared toward high-net-worth buyers.",
 			descriptionBottom:
-				"High capital entry yielding excellent long-term equity growth options.",
+				"Greater projection, more attractive return, and improved real estate brand positioning.",
 			imageUrl:
 				"https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=500&q=80",
 		},
 		multifamily: {
 			title: "Multifamily Investment",
-			timeframe: "18 to 24 months",
-			roi: "Compounded High",
+			timeframe: "12 to 16 months",
+			roi: "High",
 			descriptionTop:
-				"Large-scale residential structures configured for multi-tenant occupancy, yielding dependable cashflows and immense scalable real estate leverage.",
+				"Scalable projects with multiple housing units. Ideal for investors seeking diversification, high returns, and long term stability.",
 			descriptionBottom:
-				"Engineered specifically to support multi-investor syndicate groups.",
+				"High demand in urban areas and excellent asset appreciation.",
 			imageUrl:
 				"https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=500&q=80",
 		},
@@ -100,8 +101,11 @@ export default function Investing() {
 			{/* =========================================================
           SECTION 1: HERO OVERVIEW ("DEVELOPMENT & INVESTMENT")
           ========================================================= */}
-			<section className="grid grid-cols-1 gap-12 lg:grid-cols-3 items-start">
-				<div className="lg:col-span-1">
+			<section className="relative overflow-hidden grid grid-cols-1 gap-12 lg:grid-cols-3 items-start pb-16">
+				<div className="lg:col-span-1 relative">
+					<p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-amber-600">
+						Investment focus
+					</p>
 					<h1 className="text-4xl font-black tracking-tight text-slate-900 md:text-5xl uppercase leading-none">
 						Development
 						<br />& Investment
@@ -115,6 +119,9 @@ export default function Investing() {
 						<li>Single homes</li>
 						<li>Luxury houses</li>
 						<li>Multifamily</li>
+						<li className="text-slate-400 text-base font-normal mt-2">
+							North Texas investment markets
+						</li>
 					</ul>
 				</div>
 
@@ -223,7 +230,7 @@ export default function Investing() {
 			{/* =========================================================
           SECTION 3: TWO-WAY INTERACTIVE MAP COMPONENT
           ========================================================= */}
-			<section className= "text-center">
+			<section className="text-center">
 				<h2 className="text-3xl font-extrabold text-slate-900 mb-12 tracking-tight">
 					Which counties have we worked in ?
 				</h2>
@@ -444,15 +451,25 @@ export default function Investing() {
 
 							<ul className="inline-block text-left space-y-2 font-semibold bg-black/30 p-6 rounded-xl border border-white/10 mx-auto">
 								<li className="flex items-center">
-									<span className="text-amber-400 mr-3">▪</span> Long-term value
+									<FontAwesomeIcon
+										icon={faSquare}
+										className="text-amber-400 mr-3 text-[10px]"
+									/>
+									Long-term value
 								</li>
 								<li className="flex items-center">
-									<span className="text-amber-400 mr-3">▪</span> Measurable
-									community impact
+									<FontAwesomeIcon
+										icon={faSquare}
+										className="text-amber-400 mr-3 text-[10px]"
+									/>
+									Measurable community impact
 								</li>
 								<li className="flex items-center">
-									<span className="text-amber-400 mr-3">▪</span> Strong return
-									on investment
+									<FontAwesomeIcon
+										icon={faSquare}
+										className="text-amber-400 mr-3 text-[10px]"
+									/>
+									Strong return on investment
 								</li>
 							</ul>
 						</div>
