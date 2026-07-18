@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -12,66 +12,106 @@ import introSrc from "./assets/intro.mp4";
 import heroLogo from "./assets/we-built-logo.png";
 
 export default function App(): React.JSX.Element {
-	// Keep state typed as a plain string to natively match your HeaderProps
-	const [currentPage, setCurrentPage] = useState<string>("home");
+    const [currentPage, setCurrentPage] = useState<string>("home");
+    // State to detect if iOS has forcefully blocked our video autoplay
+    const [isAutoplayBlocked, setIsAutoplayBlocked] = useState<boolean>(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
-	const renderPage = (): React.JSX.Element => {
-		switch (currentPage) {
-			case "home":
-				return <Home />;
-			case "investing":
-				return <InvestingPage />;
-			case "projects":
-				return <ProjectsPage />;
-			case "contact":
-				return <ContactPage />;
-			default:
-				return <Home />;
-		}
-	};
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
 
-	return (
-		<div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
-			{/* 1. Mobile-friendly responsive top intro video banner */}
-			<div className="relative w-full overflow-hidden bg-slate-900 h-[40vh] sm:h-[55vh] md:h-[72vh] shrink-0">
-				<video
-					src={introSrc as string}
-					className="absolute inset-0 h-full w-full object-cover"
-					autoPlay
-					muted
-					loop
-					playsInline
-					controls={false}
-					preload="auto"
-					aria-hidden
-				/>
+        // Force parameters to be absolutely certain
+        video.muted = true;
+        video.playsInline = true;
 
-				{/* Transparent touch shield to block Safari click capture */}
-				<div className="absolute inset-0 z-10 bg-transparent pointer-events-auto" />
+        // Test if the video is allowed to play automatically
+        const playPromise = video.play();
 
-				{/* Dark ambient layout overlay */}
-				<div className="absolute inset-0 z-20 bg-slate-950/70" />
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    // Autoplay worked perfectly! Keep video visible.
+                    setIsAutoplayBlocked(false);
+                })
+                .catch((error) => {
+                    // Autoplay was blocked by iOS Low Power Mode/Safari constraints.
+                    // Fall back to a static visual to eliminate Apple's play button icon.
+                    console.log("Autoplay prevented by iOS Safari:", error);
+                    setIsAutoplayBlocked(true);
+                });
+        }
+    }, []);
 
-				{/* Top brand logo container asset layer */}
-				<div className="absolute inset-0 z-30 flex items-center justify-center px-4 sm:px-6">
-					<img
-						src={heroLogo as string}
-						alt="We Built logo"
-						className="w-1/2 sm:w-1/3 md:w-1/6 max-w-[180px] sm:max-w-[280px] md:max-w-[420px] object-contain drop-shadow-[0_0_30px_rgba(0,0,0,0.55)] border-2 border-slate-50 rounded-lg"
-					/>
-				</div>
-			</div>
+    const renderPage = (): React.JSX.Element => {
+        switch (currentPage) {
+            case "home":
+                return <Home />;
+            case "investing":
+                return <InvestingPage />;
+            case "projects":
+                return <ProjectsPage />;
+            case "contact":
+                return <ContactPage />;
+            default:
+                return <Home />;
+        }
+    };
 
-			{/* 2. Sticky Header - Types now match identically */}
-			<Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    return (
+        <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+            {/* 1. Top banner wrapper */}
+            <div 
+                className="relative w-full overflow-hidden bg-slate-900 h-[40vh] sm:h-[55vh] md:h-[72vh] shrink-0 bg-cover bg-center"
+                style={{
+                    // Fallback static background frame if video is blocked
+                    backgroundImage: isAutoplayBlocked 
+                        ? `url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80')` 
+                        : 'none'
+                }}
+            >
+                {/* Only render or show the video track if autoplay successfully executes */}
+                {!isAutoplayBlocked && (
+                    <video
+                        ref={videoRef}
+                        src={introSrc as string}
+                        className="absolute inset-0 h-full w-full object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        controls={false}
+                        preload="auto"
+                        aria-hidden
+                    />
+                )}
+                
+                {/* Transparent overlay blocks clicking/touching interaction */}
+                <div className="absolute inset-0 z-10 bg-transparent pointer-events-auto" />
 
-			{/* 3. Page Content Area with responsive gutter padding */}
-			<main className="mx-auto max-w-7xl px-4 sm:px-6 py-6 grow w-full">
-				{renderPage()}
-			</main>
+                {/* Ambient shading mask overlay */}
+                <div className="absolute inset-0 z-20 bg-slate-950/70" />
+                
+                {/* Centered Brand Logo */}
+                <div className="absolute inset-0 z-30 flex items-center justify-center px-4 sm:px-6">
+                    <img
+                        src={heroLogo as string}
+                        alt="We Built logo"
+                        className="w-1/2 sm:w-1/3 md:w-1/6 max-w-[180px] sm:max-w-[280px] md:max-w-[420px] object-contain drop-shadow-[0_0_30px_rgba(0,0,0,0.55)] border-2 border-slate-50 rounded-lg"
+                    />
+                </div>
+            </div>
 
-			{/* 4. Global Footer */}
-			<Footer />
-		</div>
-	);
+            {/* 2. Navigation Header */}
+            <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+
+            {/* 3. Main Route Block */}
+            <main className="mx-auto max-w-7xl px-4 sm:px-6 py-6 grow w-full">
+                {renderPage()}
+            </main>
+
+            {/* 4. Layout Footer */}
+            <Footer />
+        </div>
+    );
 }
