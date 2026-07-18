@@ -45,8 +45,15 @@ export default function App(): React.JSX.Element {
 					preload="auto"
 					aria-hidden
 				/>
-				<div className="absolute inset-0 bg-slate-950/70" />
-				<div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
+
+				{/* Transparent touch shield to block Safari click capture */}
+				<div className="absolute inset-0 z-10 bg-transparent pointer-events-auto" />
+
+				{/* Dark ambient layout overlay */}
+				<div className="absolute inset-0 z-20 bg-slate-950/70" />
+
+				{/* Top brand logo container asset layer */}
+				<div className="absolute inset-0 z-30 flex items-center justify-center px-4 sm:px-6">
 					<img
 						src={heroLogo as string}
 						alt="We Built logo"
