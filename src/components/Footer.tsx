@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import logoSrc from "../assets/logo.svg";
 
 export default function Footer() {
   return (
@@ -21,9 +20,7 @@ export default function Footer() {
         </p>
 
         {/* Minimal House Icon */}
-        <div className="pt-4 text-amber-500 text-4xl">
-          <FontAwesomeIcon icon={faHome} />
-        </div>
+        <img src={logoSrc} alt="DreamBuilt Logo" className="mx-auto w-16 h-16 mt-4" />
 
       </div>
     </footer>
