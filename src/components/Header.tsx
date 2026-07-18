@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logoSrc from "../assets/dreambuilt_logo.png";
 
 interface HeaderProps {
 	currentPage: string;
@@ -20,15 +21,14 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
 	};
 
 	return (
-		// "sticky top-0 z-50" guarantees it snaps to the top and stays above page content
 		<header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 				{/* Logo / Brand Name */}
 				<div
-					className="cursor-pointer text-xl font-bold tracking-tight text-slate-900"
+					className="flex items-center cursor-pointer text-xl font-bold tracking-tight text-slate-900"
 					onClick={() => handleNavClick("home")}
 				>
-					DreamBuilt
+					<img src={logoSrc} alt="DreamBuilt" className="h-8 w-auto mr-3" />
 				</div>
 
 				{/* Desktop Navigation */}
